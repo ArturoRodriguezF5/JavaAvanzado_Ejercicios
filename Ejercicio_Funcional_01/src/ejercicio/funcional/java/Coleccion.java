@@ -6,13 +6,13 @@ public class Coleccion implements FiguraCRUD{
 
     // Propiedades
     private String nombreColeccion;
-    private ArrayList<Figura> figuras;
+    private ArrayList<Figura> figuras = new ArrayList<>();
 
     public Coleccion(){
     }
     public Coleccion(String nombreColeccion) {
         this.nombreColeccion = nombreColeccion;
-        this.figuras = new ArrayList<Figura>();
+        this.figuras = new ArrayList<>();
     }
     // Métodos getters y setters
 
@@ -27,7 +27,7 @@ public class Coleccion implements FiguraCRUD{
     //Métodos
     @Override
     public void addFigura(Figura figura) {
-        this.figuras.add(figura);
+        figuras.add(figura);
     }
 
     @Override
@@ -46,12 +46,20 @@ public class Coleccion implements FiguraCRUD{
 
     @Override
     public double getValorColeccion() {
-        return 0;
+        double precioTotal = 0;
+        for (Figura fig : figuras) {
+            precioTotal += fig.getPrecio();
+        }
+        return precioTotal;
     }
 
     @Override
     public double getVolumenColeccion() {
-        return 0;
+        double volTotal = 200;
+        for (Figura fig : figuras) {
+            volTotal += fig.getDimensiones().getVolMax();
+        }
+        return volTotal;
     }
 
     @Override
@@ -63,6 +71,11 @@ public class Coleccion implements FiguraCRUD{
             }
         }
         return listado;
+    }
+
+    @Override
+    public ArrayList<Figura> verFiguras() {
+        return figuras;
     }
 
     @Override

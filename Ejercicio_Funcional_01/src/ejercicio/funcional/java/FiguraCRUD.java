@@ -1,5 +1,7 @@
 package ejercicio.funcional.java;
 
+import java.util.ArrayList;
+
 public interface FiguraCRUD {
 
     // Métodos modificadores
@@ -10,4 +12,5 @@ public interface FiguraCRUD {
     double getValorColeccion();
     double getVolumenColeccion();
     String conCapa();
+    ArrayList<Figura> verFiguras();
 }

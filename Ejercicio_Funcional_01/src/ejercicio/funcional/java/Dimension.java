@@ -44,9 +44,18 @@ public class Dimension {
     public void setProfundidad(double profundidad) {
         this.profundidad = profundidad;
     }
+
+    public double getVolMax() {
+        return volMax;
+    }
+
+    public void setVolMax(double volMax) {
+        this.volMax = volMax;
+    }
+
     // Métodos
     public double getVolumen() {
-        volMax = this.alto * this.ancho * this.profundidad;
+        this.volMax = this.alto * this.ancho * this.profundidad;
         return volMax;
     }
 
