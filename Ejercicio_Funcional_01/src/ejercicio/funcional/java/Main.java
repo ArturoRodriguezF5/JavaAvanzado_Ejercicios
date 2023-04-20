@@ -38,7 +38,6 @@ public class Main {
          * Comenzaremos por guardar los datos de la Colección en un ArraList para consumirlos mediante Lambdas
          */
         ArrayList<Figura> figuras = figuraCRUD.verFiguras();
-        ArrayList<Figura> figuras2 = figuraCRUD.verFiguras();
         figuras.stream()
                 .filter(x -> x.getSuperHeroe().getNombre().startsWith("H") && x.getSuperHeroe().getNombre().endsWith("y"))
                 .map(x -> x.getSuperHeroe().getNombre().toUpperCase())
