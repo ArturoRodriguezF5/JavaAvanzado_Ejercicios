@@ -1,6 +1,8 @@
 package ejercicio.funcional.java;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Coleccion implements FiguraCRUD{
 
@@ -42,6 +44,16 @@ public class Coleccion implements FiguraCRUD{
     @Override
     public Figura masValioso() {
 
+        ArrayList<Double> precios = new ArrayList<>();
+        for (int i = 0; i < figuras.size(); i++) {
+            precios.add(figuras.get(i).getPrecio());
+        }
+        double mayorPrecio = Collections.max(precios);
+        for (Figura fig : figuras) {
+            if (fig.getPrecio() == mayorPrecio) {
+                return fig;
+            }
+        }
         return null;
     }
 
