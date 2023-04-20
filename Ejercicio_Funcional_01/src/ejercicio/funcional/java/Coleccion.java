@@ -32,15 +32,16 @@ public class Coleccion implements FiguraCRUD{
 
     @Override
     public void subirPrecio(double cantidad, String id) {
-        for (int i = 0; i < figuras.size() - 1; i++) {
+        for (int i = 0; i < figuras.size(); i++) {
             if (figuras.get(i).getCodigo().equals(id)) {
-                figuras.get(i).setPrecio(cantidad);
+                figuras.get(i).setPrecio(cantidad + figuras.get(i).getPrecio());
             }
         }
     }
 
     @Override
     public Figura masValioso() {
+
         return null;
     }
 
@@ -55,19 +56,19 @@ public class Coleccion implements FiguraCRUD{
 
     @Override
     public double getVolumenColeccion() {
-        double volTotal = 200;
+        double volTotal = 0;
         for (Figura fig : figuras) {
-            volTotal += fig.getDimensiones().getVolMax();
+            volTotal += fig.getDimensiones().getVolumen();
         }
-        return volTotal;
+        return volTotal + 200;
     }
 
     @Override
     public String conCapa() {
-        String listado = "";
-        for (int i = 0; i < figuras.size() - 1; i++) {
+        String listado= "";
+        for (int i = 0; i < figuras.size(); i++) {
             if (figuras.get(i).getSuperHeroe().isCapa()) {
-                listado += figuras.get(i).getSuperHeroe().getNombre();
+                listado += " " + figuras.get(i).getSuperHeroe().getNombre();
             }
         }
         return listado;
